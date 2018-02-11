@@ -1,0 +1,1 @@
+aws lambda create-function --region us-east-2 --function-name myHelloName --zip-file fileb://backup.zip --role arn:aws:iam::108954560286:role/service-role/myTestRole --handler pll_handler.my_handler_wrapped --runtime python3.6 --timeout 15 --memory-size 512

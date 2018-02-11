@@ -1,0 +1,70 @@
+AWSTemplateFormatVersion : '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: A hello world application.
+Resources:
+  HelloWorldFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: pll_handler.my_handler
+      Runtime: python3.6
+      CodeUri: .
+
+  myHelloName:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: pll_handler.my_handler_raw
+      Runtime: python3.6
+      Events:
+        ListCustomers:
+          Type: Api
+          Properties:
+            Path: /HelloNameRaw
+            Method: any
+
+  myHelloNameWrapped:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: pll_handler.my_handler_wrapped
+      Runtime: python3.6
+      Events:
+        ListCustomers:
+          Type: Api
+          Properties:
+            Path: /HelloNameWrapped
+            Method: any
+
+  helloWorldBasic:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: pll_handler.hello_world
+      Runtime: python3.6
+      Events:
+        ListCustomers:
+          Type: Api
+          Properties:
+            Path: /HelloWorld
+            Method: any
+
+  solveForComponents:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: pll_handler.solve_for_comp_handler
+      Runtime: python3.6
+      Events:
+        ListCustomers:
+          Type: Api
+          Properties:
+            Path: /solveComponents
+            Method: any
+
+  powerSum:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: pll_handler.power_sum_handler
+      Runtime: python3.6
+      Events:
+        ListCustomers:
+          Type: Api
+          Properties:
+            Path: /PowerSump
+            Method: any

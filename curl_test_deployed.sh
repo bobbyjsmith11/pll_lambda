@@ -1,0 +1,1 @@
+curl -d "@event.json" -X POST https://27tsbabqx2.execute-api.us-east-2.amazonaws.com/prod/myHelloName
